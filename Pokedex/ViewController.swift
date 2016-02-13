@@ -18,7 +18,7 @@ class ViewController: UIViewController {
    
 
     override func viewDidLoad() {
-        
+        var myPokemon : OwnedPokemon!
         pokemonImage.image = UIImage(named: "Attack1_0001")
         idle()
        
