@@ -16,9 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="beV-tX-W6S">
+                                <rect key="frame" x="15" y="123" width="291" height="234"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsw-aD-AdX">
+                                <rect key="frame" x="20" y="518" width="55" height="30"/>
+                                <state key="normal" title="Attack 1"/>
+                                <connections>
+                                    <action selector="Attack1Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m6f-ad-hil"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zl-ko-v6C">
+                                <rect key="frame" x="136" y="518" width="57" height="30"/>
+                                <state key="normal" title="Attack 2"/>
+                                <connections>
+                                    <action selector="Attack2Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MAx-dM-cgj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ0-EZ-i7J">
+                                <rect key="frame" x="266" y="518" width="30" height="30"/>
+                                <state key="normal" title="Idle"/>
+                                <connections>
+                                    <action selector="IdleAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ACb-n9-ziY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="Attack1" destination="zsw-aD-AdX" id="YVd-xE-Eoo"/>
+                        <outlet property="Attack2" destination="6zl-ko-v6C" id="QbQ-oB-dYQ"/>
+                        <outlet property="Idle" destination="gJ0-EZ-i7J" id="z51-jP-M88"/>
+                        <outlet property="pokemonImage" destination="beV-tX-W6S" id="dgp-oi-1x8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
