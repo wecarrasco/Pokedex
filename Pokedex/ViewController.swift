@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         pokemonImage.image = UIImage(named: "Attack1_0001")
-        
+        idle()
        
         
         
@@ -38,11 +38,16 @@ class ViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func Attack1Action(sender: UIButton) {
+        accion(51, animationKey: "Attack1_00")
+    }
+    
+    
+    func accion(frames : Int, animationKey : String){
         var animation = [UIImage]()
         
-        for i in 1 ... 51 {
+        for i in 1 ... frames{
             let ceroextra = i < 10 ? "0" : ""
-            let currentImage = UIImage(named: "Attack1_00\(ceroextra)\(i).png")
+            let currentImage = UIImage(named: "\(animationKey)\(ceroextra)\(i).png")
             if let currentImage = currentImage{
                 animation.append(currentImage)
             }
@@ -51,27 +56,18 @@ class ViewController: UIViewController {
         pokemonImage.animationDuration = 1.0
         pokemonImage.animationRepeatCount = 1
         pokemonImage.startAnimating()
+        setButtons(enable: false)
+        NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
     }
     
 
     @IBAction func Attack2Action(sender: UIButton) {
-        var animation = [UIImage]()
-        
-        for i in 1 ... 66 {
-            let ceroextra = i < 10 ? "0" : ""
-            let currentImage = UIImage(named: "Attack_200\(ceroextra)\(i).png")
-            if let currentImage = currentImage{
-                animation.append(currentImage)
-            }
-        }
-        pokemonImage.animationImages = animation
-        pokemonImage.animationDuration = 1.0
-        pokemonImage.animationRepeatCount = 1
-        pokemonImage.startAnimating()
-
+        accion(66, animationKey: "Attack_200")
     }
+
+
     
-    @IBAction func IdleAction(sender: UIButton) {
+    func idle(){
         var animation = [UIImage]()
         
         for i in 1 ... 41 {
@@ -83,8 +79,19 @@ class ViewController: UIViewController {
         }
         pokemonImage.animationImages = animation
         pokemonImage.animationDuration = 1.0
-        pokemonImage.animationRepeatCount = 1
+        pokemonImage.animationRepeatCount = 0
         pokemonImage.startAnimating()
+    }
+    
+    
+    func setButtons(enable enable : Bool){
+        Attack1.enabled = enable
+        Attack2.enabled = enable
+    }
+    
+    func returnToIdle(){
+        idle()
+        setButtons(enable: true)
     }
 }
 
