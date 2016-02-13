@@ -13,10 +13,16 @@ enum PokemonType {
     case Grass, Water, Fire, Electric
 }
 
+struct pokemonAnimationFrame {
+    var maxFrames : Int
+    var duration : Double
+    var repeatCount : Int
+}
+
 let hpPerLevel = 10
 
 class Pokemon : NSObject {
-    
+    var animationsFrames = [String : pokemonAnimationFrame]()
     var name : String
     var type : PokemonType
     var level = 5 {
@@ -64,6 +70,23 @@ class Pokemon : NSObject {
         }
         
         return 0
+    }
+    
+    func accion(pokemonImage : UIImageView, animationKey : String){
+        var animation = [UIImage]()
+        if let key = animationsFrames[animationKey]{
+        for i in 1 ... key.maxFrames{
+            let ceroextra = i < 10 ? "0" : ""
+            if let currentImage = UIImage(named: "\(name)_\(animationKey)_00\(ceroextra)\(i).png"){
+                animation.append(currentImage)
+            }
+        }
+        pokemonImage.animationImages = animation
+        pokemonImage.animationDuration = key.duration
+        pokemonImage.animationRepeatCount = key.repeatCount
+        pokemonImage.startAnimating()
+
+        }
     }
 }
 

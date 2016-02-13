@@ -14,17 +14,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var Attack1: UIButton!
     @IBOutlet weak var Attack2: UIButton!
-    @IBOutlet weak var Idle: UIButton!
+    var myPokemon : OwnedPokemon = OwnedPokemon(name: "bulbasaur", type : PokemonType.Grass, owner : "Wal-e")
    
 
     override func viewDidLoad() {
-        var myPokemon : OwnedPokemon!
-        pokemonImage.image = UIImage(named: "Attack1_0001")
-        idle()
-       
-        
-        
-        
+        myPokemon.animationsFrames["idle"] = pokemonAnimationFrame(maxFrames: 41, duration: 1.0, repeatCount: 0)
+        myPokemon.animationsFrames["attack1"] = pokemonAnimationFrame(maxFrames: 51, duration: 1.0, repeatCount: 1)
+        myPokemon.animationsFrames["attack2"] = pokemonAnimationFrame(maxFrames: 66, duration: 1.0, repeatCount: 1)
+        myPokemon.attack1 = Attack(name: "Latigo", power: 50)
+        myPokemon.attack2 = Attack(name: "Roar", power: 10)
+        pokemonImage.image = UIImage(named: "bulbasaur_idle_0001")
+        myPokemon.accion(pokemonImage, animationKey: "idle")
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -38,49 +38,19 @@ class ViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func Attack1Action(sender: UIButton) {
-        accion(51, animationKey: "Attack1_00")
-    }
-    
-    
-    func accion(frames : Int, animationKey : String){
-        var animation = [UIImage]()
-        
-        for i in 1 ... frames{
-            let ceroextra = i < 10 ? "0" : ""
-            let currentImage = UIImage(named: "\(animationKey)\(ceroextra)\(i).png")
-            if let currentImage = currentImage{
-                animation.append(currentImage)
-            }
-        }
-        pokemonImage.animationImages = animation
-        pokemonImage.animationDuration = 1.0
-        pokemonImage.animationRepeatCount = 1
-        pokemonImage.startAnimating()
+        myPokemon.attack(1)
+        myPokemon.accion(pokemonImage, animationKey: "attack1")
         setButtons(enable: false)
         NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
+        //accion(51, animationKey: "Attack1_00")
     }
     
 
     @IBAction func Attack2Action(sender: UIButton) {
-        accion(66, animationKey: "Attack_200")
-    }
-
-
-    
-    func idle(){
-        var animation = [UIImage]()
-        
-        for i in 1 ... 41 {
-            let ceroextra = i < 10 ? "0" : ""
-            let currentImage = UIImage(named: "Idle_00\(ceroextra)\(i).png")
-            if let currentImage = currentImage{
-                animation.append(currentImage)
-            }
-        }
-        pokemonImage.animationImages = animation
-        pokemonImage.animationDuration = 1.0
-        pokemonImage.animationRepeatCount = 0
-        pokemonImage.startAnimating()
+        myPokemon.attack(2)
+        myPokemon.accion(pokemonImage, animationKey: "attack2")
+        setButtons(enable: false)
+        NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
     }
     
     
@@ -90,7 +60,7 @@ class ViewController: UIViewController {
     }
     
     func returnToIdle(){
-        idle()
+        myPokemon.accion(pokemonImage, animationKey: "idle")
         setButtons(enable: true)
     }
 }
