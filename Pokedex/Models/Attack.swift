@@ -9,7 +9,7 @@
 import UIKit
 
 
-struct Attack {
+class Attack : NSObject {
     
     var name : String
     var power = 0.0

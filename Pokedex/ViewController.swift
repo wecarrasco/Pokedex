@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
+    var turno = 2
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var Attack1: UIButton!
     @IBOutlet weak var Attack2: UIButton!
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelTurno: UILabel!
     
     var myPokemon : OwnedPokemon = OwnedPokemon(name: "bulbasaur", type : PokemonType.Grass, owner : "Wal-e")
-    var myPokemon2 : OwnedPokemon = OwnedPokemon(name: "bulbasaur2", type : PokemonType.Grass, owner : "Wal-e2")
+    var myPokemon2 : OwnedPokemon = OwnedPokemon(name: "charmander", type : PokemonType.Fire, owner : "Wal-e2")
 
     override func viewDidLoad() {
         inicializarPokemon(myPokemon)
@@ -35,10 +35,11 @@ class ViewController: UIViewController {
         pokemon.animationsFrames["attack2"] = pokemonAnimationFrame(maxFrames: 66, duration: 1.0, repeatCount: 1)
         pokemon.attack1 = Attack(name: "Latigo", power: 50)
         pokemon.attack2 = Attack(name: "Roar", power: 10)
+        
         pokemonImage.image = UIImage(named: "bulbasaur_idle_0001")
-        pokemon2Image.image = UIImage(named: "bulbasaur_idle_0001")
+        pokemon2Image.image = UIImage(named: "charmander_idle_0001")
         pokemon.accion(pokemonImage, animationKey: "idle")
-
+        pokemon.accion(pokemon2Image, animationKey: "idle")
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,19 +51,44 @@ class ViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func Attack1Action(sender: UIButton) {
-        myPokemon.attack(1)
-        myPokemon.accion(pokemonImage, animationKey: "attack1")
-        setButtons(enable: false)
-        NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
-        //accion(51, animationKey: "Attack1_00")
+        
+        if turno % 2 == 0{
+            myPokemon.attack(1)
+            myPokemon.accion(pokemonImage, animationKey: "attack1")
+            setButtons(enable: false)
+            NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
+            labelTurno.text = myPokemon2.name
+
+        }else{
+            myPokemon2.attack(1)
+            myPokemon2.accion(pokemon2Image, animationKey: "attack1")
+            setButtons(enable: false)
+            NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
+            labelTurno.text = myPokemon.name
+        }
+        turno++
+        
+        
+                //accion(51, animationKey: "Attack1_00")
     }
     
 
     @IBAction func Attack2Action(sender: UIButton) {
-        myPokemon.attack(2)
-        myPokemon.accion(pokemonImage, animationKey: "attack2")
-        setButtons(enable: false)
-        NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
+        
+        if turno % 2 == 0{
+            myPokemon.attack(2)
+            myPokemon.accion(pokemonImage, animationKey: "attack2")
+            setButtons(enable: false)
+            NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
+            labelTurno.text = myPokemon2.name
+        }else{
+            myPokemon2.attack(2)
+            myPokemon2.accion(pokemon2Image, animationKey: "attack2")
+            setButtons(enable: false)
+            NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
+            labelTurno.text = myPokemon.name
+        }
+        turno++
     }
     
     
@@ -73,6 +99,7 @@ class ViewController: UIViewController {
     
     func returnToIdle(){
         myPokemon.accion(pokemonImage, animationKey: "idle")
+        myPokemon2.accion(pokemon2Image, animationKey: "idle")
         setButtons(enable: true)
     }
 }

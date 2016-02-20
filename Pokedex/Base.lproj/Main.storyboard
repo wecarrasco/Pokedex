@@ -1,10 +1,144 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PQi-YM-GyP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
+        <!--Walemon-->
+        <scene sceneID="xFt-57-KaU">
+            <objects>
+                <viewController id="kGW-52-QVi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UM7-B0-BnH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wub-FA-Sym"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ERT-Yh-bSn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saS-n7-twl">
+                                <rect key="frame" x="112" y="350" width="96" height="62"/>
+                                <state key="normal" title="Iniciar Pelea"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="YlB-sY-ONy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7L-8N-mZL">
+                                <rect key="frame" x="127" y="162" width="66" height="42"/>
+                                <state key="normal" title="Waledex"/>
+                                <connections>
+                                    <segue destination="lmB-b4-bWk" kind="show" id="Nau-3E-Rdu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Walemon" id="O3e-gQ-a25">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="1Zf-xa-Vs7"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="haT-aA-viz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="-93"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6mi-jf-Cex">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fyk-Fb-1id" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="lmB-b4-bWk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Aep-nG-UTO"/>
+                        <viewControllerLayoutGuide type="bottom" id="s31-YQ-VMK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9AW-WO-qPj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NK5-PS-33e">
+                                <rect key="frame" x="59" y="66" width="218" height="184"/>
+                                <state key="normal" title="Button" image="bulbasaur_attack1_0001.png"/>
+                                <connections>
+                                    <segue destination="wgT-Bo-wq6" kind="show" id="g5h-L8-wSY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zx-5C-Yir">
+                                <rect key="frame" x="59" y="295" width="246" height="192"/>
+                                <state key="normal" title="Button" image="charmander_attack1_0017.png"/>
+                                <connections>
+                                    <segue destination="wgT-Bo-wq6" kind="show" id="qPW-bo-PCw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="915" y="-262"/>
+        </scene>
+        <!--Nombre de Pokemon-->
+        <scene sceneID="mdu-8w-O07">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lq-qg-XZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="wgT-Bo-wq6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kaq-Tk-g1o"/>
+                        <viewControllerLayoutGuide type="bottom" id="a1O-pm-Lv4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MSB-VP-97U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZG4-jH-IYQ">
+                                <rect key="frame" x="40" y="95" width="240" height="128"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sro-GA-JmZ">
+                                <rect key="frame" x="40" y="261" width="240" height="287"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nombre de Pokemon" id="0eO-4k-rcH">
+                        <barButtonItem key="backBarButtonItem" title="    " id="7OQ-2K-ZcN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="MMV-ig-Ypn">
+                            <connections>
+                                <segue destination="f5R-cz-37U" kind="show" id="Q14-PR-aJY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1341" y="-262"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="G2a-f0-wZe">
+            <objects>
+                <viewController id="f5R-cz-37U" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NJY-hN-4Uf"/>
+                        <viewControllerLayoutGuide type="bottom" id="tjW-9S-I5I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sRv-aW-HCY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="61j-gR-NZY">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="hQ9-cG-zgm"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="GhT-Hg-zzn"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LKj-wh-HSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744" y="-262"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -41,13 +175,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Turno de: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydB-kG-g2j">
                                 <rect key="frame" x="80" y="248" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUp-E3-9dw">
-                                <rect key="frame" x="159" y="248" width="42" height="21"/>
+                                <rect key="frame" x="159" y="248" width="110" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -64,7 +198,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="404"/>
+            <point key="canvasLocation" x="908" y="447"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YWA-vg-Ero">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PQi-YM-GyP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6JM-zk-Gf0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kGW-52-QVi" kind="relationship" relationship="rootViewController" id="sch-Tm-uLa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="php-92-rJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-409" y="-93"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bulbasaur_attack1_0001.png" width="192" height="192"/>
+        <image name="charmander_attack1_0017.png" width="192" height="192"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qPW-bo-PCw"/>
+    </inferredMetricsTieBreakers>
 </document>
